@@ -736,19 +736,9 @@ footer .lock{display:inline-flex;align-items:center;gap:7px}
 <div class="modal" id="videoModal" role="dialog" aria-modal="true" aria-label="Vídeo de apresentação">
   <div class="modal-box">
     <button class="modal-close" id="closeVideo" aria-label="Fechar">✕</button>
-    <!-- ================= INSIRA AQUI O EMBED DO VÍDEO COMPLETO =================
-         Opção A (YouTube): troque o placeholder abaixo por:
-           <iframe src="https://www.youtube.com/embed/SEU_VIDEO_ID?autoplay=1"
-                   title="Apresentação" allow="autoplay; fullscreen" allowfullscreen></iframe>
-         Opção B (arquivo local): <video src="assets/apresentacao.mp4" controls autoplay></video>
-         Depois, pode apagar o bloco .vid-placeholder abaixo. -->
-    <div class="vid-placeholder" id="vidPlaceholder">
-      <div>
-        <div class="pic">🎬</div>
-        <strong>Espaço reservado para o vídeo completo</strong><br>
-        <span style="font-size:.9rem">Insira aqui o embed do YouTube/Vimeo ou um arquivo de vídeo.</span>
-      </div>
-    </div>
+    <!-- ================= VÍDEO DE APRESENTAÇÃO =================
+         Arquivo local: assets/apresentacao.mp4 -->
+    <video src="assets/apresentacao.mp4" controls autoplay playsinline></video>
   </div>
 </div>
 
