@@ -55,14 +55,26 @@
     background:rgba(10,17,36,.72);
     border-bottom:1px solid var(--line);
   }
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:66px}
-  .brand{display:flex;align-items:center;gap:11px;font-weight:700;letter-spacing:.3px}
+  .nav-inner{display:flex;align-items:center;gap:14px;height:66px}
+  .nav-back{
+    display:inline-flex;align-items:center;justify-content:center;gap:7px;
+    font-family:var(--mono);font-size:13px;text-decoration:none;color:var(--ink);
+    border:1px solid var(--line);border-radius:9px;padding:8px 13px 8px 11px;flex:0 0 auto;
+    transition:transform .2s,border-color .2s,background .2s;
+  }
+  .nav-back svg{width:15px;height:15px;transition:transform .2s}
+  .nav-back:hover{border-color:var(--cyan);background:rgba(63,208,224,.06)}
+  .nav-back:hover svg{transform:translateX(-3px)}
+  .nav-back .lbl-full{display:inline}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:700;letter-spacing:.3px;
+    text-decoration:none;color:inherit}
   .brand .dot{width:11px;height:11px;border-radius:50%;
     background:var(--cyan);box-shadow:0 0 14px var(--cyan)}
   .brand small{display:block;font-weight:400;font-size:11px;color:var(--ink-soft);letter-spacing:1.5px;text-transform:uppercase}
+  .nav-spacer{flex:1 1 auto}
   .nav-cta{
     font-family:var(--mono);font-size:13px;text-decoration:none;color:var(--bg);
-    background:var(--cyan);padding:9px 16px;border-radius:8px;font-weight:600;
+    background:var(--cyan);padding:9px 16px;border-radius:8px;font-weight:600;flex:0 0 auto;
     transition:transform .2s,box-shadow .2s;
   }
   .nav-cta:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(63,208,224,.32)}
@@ -322,6 +334,8 @@
     section{padding:60px 0}
     .bncc-grid,.compare,.cards,.stats{grid-template-columns:1fr}
     .nav-cta{display:none}
+    .brand small{display:none}
+    .nav-back{padding:8px 12px}
   }
 </style>
 </head>
@@ -329,10 +343,15 @@
 
 <nav>
   <div class="wrap nav-inner">
-    <div class="brand">
+    <a class="nav-back" href="home.html" aria-label="Voltar para a página inicial">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+      <span class="lbl-full">Início</span>
+    </a>
+    <a class="brand" href="home.html">
       <span class="dot"></span>
       <div>Instituto Nossos Robôs<small>Para Escolas</small></div>
-    </div>
+    </a>
+    <span class="nav-spacer"></span>
     <a class="nav-cta" href="#contato">Falar conosco</a>
   </div>
 </nav>
