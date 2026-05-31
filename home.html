@@ -176,7 +176,7 @@ a,.btn,.fc-link,button{-webkit-tap-highlight-color:transparent}
 .menu-links{display:flex;gap:26px;align-items:center}
 
 /* ---------- hero ---------- */
-.hero{position:relative;min-height:100svh;display:flex;align-items:center;
+.hero{position:relative;display:flex;align-items:center;
   padding:130px clamp(18px,5vw,52px) 70px;overflow:hidden}
 .hero-video-wrap{position:absolute;inset:0;z-index:-1;overflow:hidden}
 #bgVideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.3}
@@ -203,7 +203,7 @@ h1 .grad{color:var(--ouro);animation:wordPulse 2.8s ease-in-out infinite}
 
 /* chips de público (substância sob o CTA) */
 /* cartões de ícone (ícone grande centralizado + rótulo embaixo) — ref. anexo */
-.hero-chips{margin-top:28px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px;max-width:560px}
+.hero-chips{margin-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:560px}
 .chip{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;
   font-size:.92rem;font-weight:600;color:var(--text);
   background:var(--surface);border:1px solid var(--line-strong);padding:20px 12px;border-radius:16px;transition:.24s}
@@ -415,16 +415,30 @@ footer .lock{display:inline-flex;align-items:center;gap:7px}
 .modes .sep{width:5px;height:5px;border-radius:50%;background:var(--line-strong)}
 
 @media (min-width:881px){
-  .hero{min-height:auto;align-items:flex-start;padding-top:160px}
+  .hero-visual{min-height:220px;align-self:start;margin-top:8px}
+  .hero{padding-top:96px;padding-bottom:20px}
+  .hero-inner{gap:30px;align-items:start}
+  .hero-copy h1{font-size:clamp(2.5rem,4.4vw,3.6rem);margin-top:14px}
+  .hero-copy .sub{margin-top:18px}
+  .hero-cta{margin-top:24px}
+  .hero-chips{margin-top:20px;grid-template-columns:repeat(6,1fr);max-width:none}
 }
 @media (max-width:880px){
+  .hero{min-height:100svh}
   .menu-links{display:none}
   header{padding:14px 16px}
   .brand-logo{height:42px}
   nav{order:2}
   .brand-name{order:3;flex-basis:100%;width:100%;font-size:1rem;white-space:normal}
-  .hero-inner{grid-template-columns:1fr;gap:30px}
-  .hero-visual{min-height:280px;order:2}
+  .hero-inner{display:flex;flex-direction:column;gap:0}
+  .hero-copy{display:contents}
+  .hero-copy .eyebrow{order:1}
+  .hero-copy h1{order:2}
+  .hero-copy .sub{order:3}
+  .hero-visual{min-height:280px;order:4;margin:22px 0 4px}
+  .hero-copy .hero-cta{order:5}
+  .hero-copy .hero-chips{order:6}
+  .hero-copy .trust{order:7}
   .hero-chips{max-width:none;grid-template-columns:repeat(2,1fr)}
   .scroll-cue{display:none}
   .cards{grid-template-columns:1fr}
@@ -586,6 +600,29 @@ footer .lock{display:inline-flex;align-items:center;gap:7px}
           </svg>
           <span>Cursos</span>
         </span>
+        <span class="chip">
+          <svg viewBox="0 0 256 256" fill="none" stroke="#55E6FF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="48" y="86" width="160" height="120" rx="10"/>
+            <path d="M48 120 H208"/>
+            <path d="M100 86 V70 C100 58, 156 58, 156 70 V86"/>
+            <circle cx="104" cy="160" r="10" fill="#FFB703" stroke="none"/>
+            <circle cx="152" cy="160" r="10" fill="#FFB703" stroke="none"/>
+            <path d="M118 184 H138"/>
+            <path d="M128 120 V96" stroke="#FFB703"/>
+          </svg>
+          <span>Kits Robótica</span>
+        </span>
+        <span class="chip">
+          <svg viewBox="0 0 256 256" fill="none" stroke="#55E6FF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="86" cy="84" r="26"/>
+            <circle cx="170" cy="84" r="26"/>
+            <path d="M40 184 C40 132, 132 132, 132 184"/>
+            <path d="M124 184 C124 132, 216 132, 216 184"/>
+            <path d="M112 110 L144 110" stroke="#FFB703" stroke-width="9"/>
+            <circle cx="128" cy="110" r="7" fill="#FFB703" stroke="none"/>
+          </svg>
+          <span>Parcerias</span>
+        </span>
       </div>
       <div class="trust reveal d6"><span class="ln"></span> De acordo com as novas regras de Computação na Educação Básica</div>
     </div>
@@ -615,12 +652,12 @@ footer .lock{display:inline-flex;align-items:center;gap:7px}
 <!-- ===================== SERVIÇOS ===================== -->
 <section class="services" id="servicos">
   <h2 class="reveal">O que fazemos</h2>
-  <p class="lead reveal">Três jeitos de levar robótica de verdade para a sua escola: oficinas para os alunos, formação para os professores e certificação para quem quer se aprofundar.</p>
+  <p class="lead reveal">Várias formas de levar robótica de verdade para a sua escola: oficinas e workshops para os alunos, formação e certificação para os professores.</p>
   <div class="cards">
 
     <article class="card reveal d1">
       <div class="ic"><svg class="ic-robot" viewBox="0 0 64 64" fill="none" stroke="#48CAE4" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><g class="robot"><path d="M32 8 V15"/><circle class="ant" cx="32" cy="6" r="2.4" fill="#FFB703" stroke="none"/><rect x="14" y="16" width="36" height="30" rx="9"/><g class="eyes"><circle cx="24" cy="30" r="3.2" fill="#FFB703" stroke="none"/><circle cx="40" cy="30" r="3.2" fill="#FFB703" stroke="none"/></g><path d="M25 38 Q32 43 39 38"/><path d="M14 28 H9 M50 28 H55"/></g><g class="board"><rect x="22" y="24" width="20" height="16" rx="2"/><path d="M22 29 H15 M22 35 H15 M42 29 H49 M42 35 H49 M27 24 V17 M37 24 V17 M27 40 V47 M37 40 V47"/><circle cx="15" cy="29" r="2" fill="#FFB703" stroke="none"/><circle cx="49" cy="35" r="2" fill="#FFB703" stroke="none"/><circle cx="32" cy="32" r="2.6" fill="#FFB703" stroke="none"/></g></svg></div>
-      <h3>Oficinas e projetos para escolas</h3>
+      <h3>Projetos para escolas</h3>
       <p>Nós levamos robótica e tecnologia para dentro da sua escola, de um jeito simples e que cabe no orçamento — e ainda ajudamos a cumprir as novas regras de Computação.</p>
       <span class="more">Levar para minha escola <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
     </article>
@@ -637,6 +674,20 @@ footer .lock{display:inline-flex;align-items:center;gap:7px}
       <h3>Certificação de mediadores</h3>
       <p>O Instituto certifica os professores para usar a nossa metodologia. São três níveis, do básico ao avançado, com certificado no fim.</p>
       <span class="more">Conhecer a certificação <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </article>
+
+    <article class="card reveal d4">
+      <div class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="#48CAE4" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="32" r="11"/><circle cx="32" cy="32" r="4" fill="#FFB703" stroke="none"/><path d="M32 8 V16 M32 48 V56 M8 32 H16 M48 32 H56 M15 15 L21 21 M43 43 L49 49 M49 15 L43 21 M21 43 L15 49" stroke="#FFB703" stroke-width="3"/></svg></div>
+      <h3>Oficinas</h3>
+      <p>Oficinas práticas em que os alunos põem a mão na massa: montam, programam e testam os próprios projetos, do começo ao fim.</p>
+      <span class="more">Quero uma oficina <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+    </article>
+
+    <article class="card reveal d5">
+      <div class="ic"><svg viewBox="0 0 64 64" fill="none" stroke="#48CAE4" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M32 10 C22 10 16 17 16 26 C16 33 21 37 23 41 H41 C43 37 48 33 48 26 C48 17 42 10 32 10 Z"/><path d="M25 47 H39 M27 53 H37" stroke="#FFB703" stroke-width="3"/><path d="M33 22 L28 31 H36 L31 40" stroke="#FFB703" stroke-width="2.6"/></svg></div>
+      <h3>Workshops</h3>
+      <p>Encontros curtos e intensivos sobre um tema específico. Uma porta de entrada para conhecer a robótica e a nossa forma de ensinar.</p>
+      <span class="more">Conhecer os workshops <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
     </article>
 
   </div>
