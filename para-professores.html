@@ -271,62 +271,69 @@
   }
   .scard .ico svg{width:34px;height:34px;display:block;overflow:visible}
 
-  /* ---- glyph: criar (neurônio + centelhas) ---- */
-  .g-criar .node{fill:none;stroke:var(--cyan);stroke-width:1.6}
-  .g-criar .core{fill:var(--cyan);animation:core-pulse 2.6s ease-in-out infinite}
-  .g-criar .spark{fill:#fff;animation:spark-travel 1.9s linear infinite}
-  .g-criar .s2{animation-delay:.63s}
-  .g-criar .s3{animation-delay:1.26s}
-  .scard:hover .g-criar .spark{animation-duration:1.2s}
-  @keyframes spark-travel{
-    0%{offset-distance:0%;opacity:0}
-    12%{opacity:1}88%{opacity:1}
-    100%{offset-distance:100%;opacity:0}
-  }
-  @keyframes core-pulse{0%,100%{opacity:.65}50%{opacity:1}}
+  /* ---- glyph: palestras (apresentador + tela + público) ---- */
+  .g-pal .pal-screen{fill:none;stroke:var(--cyan);stroke-width:1.6}
+  .g-pal .pal-head{fill:none;stroke:var(--cyan);stroke-width:1.6}
+  .g-pal .pal-body{fill:none;stroke:var(--cyan);stroke-width:1.6;stroke-linecap:round}
+  .g-pal .pal-stand,.g-pal .pal-base{stroke:var(--cyan);stroke-width:1.6;stroke-linecap:round;opacity:.6}
+  .g-pal .pal-pulse{fill:none;stroke:var(--amber);stroke-width:1.5;transform-origin:29px 9px;transform-box:fill-box;
+    animation:pal-ring 2.6s ease-out infinite}
+  .g-pal .pal-pulse.u2{animation-delay:1.3s}
+  .scard:hover .g-pal .pal-pulse{animation-duration:1.5s}
+  @keyframes pal-ring{0%{transform:scale(.3);opacity:.9}100%{transform:scale(1.8);opacity:0}}
 
-  /* ---- glyph: descobrir (partículas revelando blueprint) ---- */
-  .g-desc .blueprint{fill:none;stroke:var(--green);stroke-width:1.5;
-    stroke-dasharray:90;animation:bp-draw 4.5s ease-in-out infinite}
-  .g-desc .pt{fill:var(--cyan);animation:pt-scatter 4.5s ease-in-out infinite}
-  .g-desc .p1{--tx:-9px;--ty:-7px}
-  .g-desc .p2{--tx:8px;--ty:-6px}
-  .g-desc .p3{--tx:-7px;--ty:8px}
-  .g-desc .p4{--tx:9px;--ty:7px}
-  @keyframes bp-draw{
-    0%{stroke-dashoffset:90}
-    35%,70%{stroke-dashoffset:0}
-    100%{stroke-dashoffset:90}
-  }
-  @keyframes pt-scatter{
-    0%{transform:translate(0,0);opacity:1}
-    35%,70%{transform:translate(var(--tx),var(--ty));opacity:0}
-    100%{transform:translate(0,0);opacity:1}
+  /* ---- glyph: formação continuada (livro com páginas) ---- */
+  .g-livro .bk-spine{fill:none;stroke:var(--blue);stroke-width:1.6;stroke-linecap:round}
+  .g-livro .bk-cover{fill:none;stroke:var(--blue);stroke-width:1.6;stroke-linejoin:round}
+  .g-livro .bk-pg{stroke:var(--amber);stroke-width:1.4;stroke-linecap:round;
+    stroke-dasharray:7;stroke-dashoffset:7;animation:livro-pg 3.6s ease-in-out infinite}
+  .g-livro .pL2{animation-delay:.25s}
+  .g-livro .pR1{animation-delay:.5s}
+  .g-livro .pR2{animation-delay:.75s}
+  .scard:hover .g-livro .bk-pg{animation-duration:1.9s}
+  @keyframes livro-pg{
+    0%,6%{stroke-dashoffset:7}
+    35%,78%{stroke-dashoffset:0}
+    94%,100%{stroke-dashoffset:7}
   }
 
-  /* ---- glyph: resolver (engrenagem girando + peças) ---- */
-  .g-res .gear{fill:none;stroke:var(--blue);stroke-width:1.6;transform-origin:center}
-  .g-res .gtooth{stroke:var(--blue);stroke-width:2.4;stroke-linecap:round}
-  .g-res .gset{transform-origin:17px 17px;animation:gear-spin 6s linear infinite}
-  .scard:hover .g-res .gset{animation-duration:2.4s}
-  @keyframes gear-spin{to{transform:rotate(360deg)}}
-  .g-res .bolt{fill:var(--blue);animation:bolt-glow 2.6s ease-in-out infinite}
-  .g-res .bolt:nth-of-type(2){animation-delay:1.3s}
-  @keyframes bolt-glow{0%,100%{opacity:.4}50%{opacity:1}}
+  /* ---- glyph: certificado (diploma + selo que carimba) ---- */
+  .g-cert .doc{fill:none;stroke:var(--amber);stroke-width:1.6}
+  .g-cert .dl{stroke:var(--amber);stroke-width:1.5;stroke-linecap:round;opacity:.5}
+  .g-cert .seal-ring{fill:#0a1124;stroke:var(--amber);stroke-width:1.6;
+    transform-origin:23px 24px;transform-box:fill-box;animation:cert-stamp 3.4s ease-in-out infinite}
+  .g-cert .seal-star{fill:var(--amber);transform-origin:23px 24px;transform-box:fill-box;
+    animation:cert-stamp 3.4s ease-in-out infinite}
+  .g-cert .ribbon{stroke:var(--amber);stroke-width:1.6;stroke-linecap:round}
+  .scard:hover .g-cert .seal-ring,.scard:hover .g-cert .seal-star{animation-duration:1.8s}
+  @keyframes cert-stamp{
+    0%,20%{transform:scale(0);opacity:0}
+    38%{transform:scale(1.25);opacity:1}
+    50%,88%{transform:scale(1);opacity:1}
+    100%{transform:scale(0);opacity:0}
+  }
 
-  /* ---- glyph: errar (hexágono rebelde) ---- */
-  .g-err .hex{fill:none;stroke:var(--amber);stroke-width:1.5;opacity:.7}
-  .g-err .rebel{transform-origin:center;transform-box:fill-box;
-    animation:rebel-break 3.4s ease-in-out infinite}
-  .scard:hover .g-err .rebel{animation-duration:2s}
-  @keyframes rebel-break{
-    0%,100%{transform:translate(0,0) rotate(0)}
-    30%,55%{transform:translate(7px,-5px) rotate(22deg)}
+  /* ---- glyph: modalidades (monitor + presencial + sync) ---- */
+  .g-mod .md-screen{fill:none;stroke:var(--green);stroke-width:1.6}
+  .g-mod .md-stand,.g-mod .md-base{stroke:var(--green);stroke-width:1.6;stroke-linecap:round;opacity:.6}
+  .g-mod .md-head{fill:none;stroke:var(--green);stroke-width:1.6}
+  .g-mod .md-body{fill:none;stroke:var(--green);stroke-width:1.6;stroke-linecap:round}
+  .g-mod .md-on{fill:var(--amber);animation:mod-on 2.8s ease-in-out infinite}
+  .g-mod .md-sync{fill:none;stroke:var(--amber);stroke-width:1.5;stroke-linecap:round;
+    stroke-dasharray:14;stroke-dashoffset:14;animation:mod-sync 2.8s ease-in-out infinite}
+  .scard:hover .g-mod .md-on,.scard:hover .g-mod .md-sync{animation-duration:1.5s}
+  @keyframes mod-on{0%,100%{opacity:.4}50%{opacity:1}}
+  @keyframes mod-sync{
+    0%,15%{stroke-dashoffset:14}
+    45%,80%{stroke-dashoffset:0}
+    95%,100%{stroke-dashoffset:14}
   }
 
   @media(prefers-reduced-motion:reduce){
-    .g-criar .spark,.g-criar .core,.g-desc .blueprint,.g-desc .pt,
-    .g-res .gset,.g-res .bolt,.g-err .rebel{animation:none !important}
+    .g-pal .pal-pulse,.g-livro .bk-pg,.g-cert .seal-ring,.g-cert .seal-star,
+    .g-mod .md-on,.g-mod .md-sync{animation:none !important}
+    .g-livro .bk-pg,.g-mod .md-sync{stroke-dashoffset:0}
+    .g-cert .seal-ring,.g-cert .seal-star{transform:scale(1);opacity:1}
   }
   .scard h3{font-size:1.22rem;font-weight:700}
   .scard p{margin-top:10px;color:var(--ink-soft);font-size:.98rem}
@@ -531,64 +538,57 @@
     </div>
     <div class="cards">
       <div class="scard reveal" style="--accent:var(--cyan)">
-        <div class="ico"><svg class="g-criar" viewBox="0 0 34 34">
-          <path id="ax1" class="node" d="M6 26 Q17 17 17 6"/>
-          <path id="ax2" class="node" d="M6 26 Q17 22 28 14"/>
-          <path id="ax3" class="node" d="M17 6 Q22 18 28 14"/>
-          <circle class="core" cx="6" cy="26" r="3.2"/>
-          <circle class="core" cx="17" cy="6" r="2.6"/>
-          <circle class="core" cx="28" cy="14" r="2.6"/>
-          <circle class="spark s1" r="1.7" style="offset-path:path('M6 26 Q17 17 17 6')"/>
-          <circle class="spark s2" r="1.7" style="offset-path:path('M6 26 Q17 22 28 14')"/>
-          <circle class="spark s3" r="1.7" style="offset-path:path('M17 6 Q22 18 28 14')"/>
+        <div class="ico"><svg class="g-pal" viewBox="0 0 34 34">
+          <rect class="pal-screen" x="6" y="6" width="22" height="15" rx="1.5"/>
+          <circle class="pal-head" cx="17" cy="11" r="2.4"/>
+          <path class="pal-body" d="M12.5 18 C12.5 13.5, 21.5 13.5, 21.5 18"/>
+          <line class="pal-stand" x1="17" y1="21" x2="17" y2="26"/>
+          <line class="pal-base" x1="11" y1="26" x2="23" y2="26"/>
+          <circle class="pal-pulse u1" cx="29" cy="9" r="2"/>
+          <circle class="pal-pulse u2" cx="29" cy="9" r="2"/>
         </svg></div>
         <h3>Palestras e workshops</h3>
         <p>A porta de entrada. Encontros abertos que apresentam a proposta e dão ao professor uma primeira experiência prática com a robótica de hardware aberto — sem compromisso de trilha.</p>
         <div class="meta">Entrada · aberta a todos</div>
       </div>
       <div class="scard reveal" style="--accent:var(--blue)">
-        <div class="ico"><svg class="g-desc" viewBox="0 0 34 34">
-          <rect class="blueprint" x="9" y="11" width="16" height="12" rx="1.5"/>
-          <line class="blueprint" x1="13" y1="11" x2="13" y2="6" style="transition-delay:.15s"/>
-          <line class="blueprint" x1="21" y1="11" x2="21" y2="6" style="transition-delay:.15s"/>
-          <circle class="blueprint" cx="13" cy="27" r="2.4" style="transition-delay:.3s"/>
-          <circle class="blueprint" cx="21" cy="27" r="2.4" style="transition-delay:.3s"/>
-          <circle class="pt p1" cx="17" cy="17" r="2"/>
-          <circle class="pt p2" cx="17" cy="17" r="1.6"/>
-          <circle class="pt p3" cx="17" cy="17" r="1.8"/>
-          <circle class="pt p4" cx="17" cy="17" r="1.5"/>
+        <div class="ico"><svg class="g-livro" viewBox="0 0 34 34">
+          <path class="bk-spine" d="M17 9 V27"/>
+          <path class="bk-cover" d="M17 9 C13 6, 7 6, 5 8 V25 C7 23, 13 23, 17 26"/>
+          <path class="bk-cover" d="M17 9 C21 6, 27 6, 29 8 V25 C27 23, 21 23, 17 26"/>
+          <line class="bk-pg pL1" x1="8" y1="12" x2="14" y2="11.5"/>
+          <line class="bk-pg pL2" x1="8" y1="16" x2="14" y2="15.5"/>
+          <line class="bk-pg pR1" x1="20" y1="11.5" x2="26" y2="12"/>
+          <line class="bk-pg pR2" x1="20" y1="15.5" x2="26" y2="16"/>
         </svg></div>
         <h3>Formação continuada</h3>
         <p>Cursos que preparam o educador para conduzir as atividades em sala, com planos de aula estruturados e apoio na adaptação ao currículo e à realidade da sua escola.</p>
         <div class="meta">Prática conduzida em sala</div>
       </div>
       <div class="scard reveal" style="--accent:var(--amber)">
-        <div class="ico"><svg class="g-res" viewBox="0 0 34 34">
-          <g class="gset">
-            <circle class="gear" cx="17" cy="17" r="7"/>
-            <circle class="gear" cx="17" cy="17" r="2.6"/>
-            <line class="gtooth" x1="17" y1="6" x2="17" y2="9"/>
-            <line class="gtooth" x1="17" y1="25" x2="17" y2="28"/>
-            <line class="gtooth" x1="6" y1="17" x2="9" y2="17"/>
-            <line class="gtooth" x1="25" y1="17" x2="28" y2="17"/>
-            <line class="gtooth" x1="9.2" y1="9.2" x2="11.3" y2="11.3"/>
-            <line class="gtooth" x1="22.7" y1="22.7" x2="24.8" y2="24.8"/>
-            <line class="gtooth" x1="24.8" y1="9.2" x2="22.7" y2="11.3"/>
-            <line class="gtooth" x1="11.3" y1="22.7" x2="9.2" y2="24.8"/>
-          </g>
-          <circle class="bolt" cx="5" cy="6" r="1.8"/>
-          <circle class="bolt" cx="29" cy="28" r="1.8"/>
+        <div class="ico"><svg class="g-cert" viewBox="0 0 34 34">
+          <rect class="doc" x="6" y="6" width="22" height="16" rx="1.5"/>
+          <line class="dl d1" x1="10" y1="11" x2="24" y2="11"/>
+          <line class="dl d2" x1="10" y1="14" x2="24" y2="14"/>
+          <line class="dl d3" x1="10" y1="17" x2="19" y2="17"/>
+          <circle class="seal-ring" cx="23" cy="24" r="6"/>
+          <path class="seal-star" d="M23 21 L23.9 23.1 L26 23.1 L24.3 24.5 L25 26.7 L23 25.4 L21 26.7 L21.7 24.5 L20 23.1 L22.1 23.1 Z"/>
+          <line class="ribbon r1" x1="21" y1="29" x2="20.5" y2="32.5"/>
+          <line class="ribbon r2" x1="25" y1="29" x2="25.5" y2="32.5"/>
         </svg></div>
         <h3>Certificação em níveis</h3>
         <p>Trilha progressiva — introdutório, intermediário e aprofundado — que habilita o educador como mediador da metodologia, com reconhecimento formal de cada etapa concluída.</p>
         <div class="meta">Percurso reconhecido</div>
       </div>
       <div class="scard reveal" style="--accent:var(--green)">
-        <div class="ico"><svg class="g-err" viewBox="0 0 34 34">
-          <polygon class="hex" points="11,8 15,8 17,11.5 15,15 11,15 9,11.5"/>
-          <polygon class="hex" points="20,8 24,8 26,11.5 24,15 20,15 18,11.5"/>
-          <polygon class="hex" points="11,18 15,18 17,21.5 15,25 11,25 9,21.5"/>
-          <polygon class="hex rebel" points="20,18 24,18 26,21.5 24,25 20,25 18,21.5"/>
+        <div class="ico"><svg class="g-mod" viewBox="0 0 34 34">
+          <rect class="md-screen" x="4" y="8" width="15" height="11" rx="1.5"/>
+          <line class="md-stand" x1="11.5" y1="19" x2="11.5" y2="23"/>
+          <line class="md-base" x1="7" y1="23" x2="16" y2="23"/>
+          <circle class="md-on" cx="11.5" cy="13.5" r="2.4"/>
+          <circle class="md-head" cx="25" cy="13" r="3"/>
+          <path class="md-body" d="M20 25 C20 18, 30 18, 30 25"/>
+          <path class="md-sync" d="M19 11 q3 -3 6 0"/>
         </svg></div>
         <h3>Online, presencial ou híbrida</h3>
         <p>Cada nível pode ser cursado na modalidade que cabe na sua rotina. Quem já dá aula escolhe o formato — sem precisar parar a sala para se aprimorar.</p>
@@ -605,22 +605,14 @@
       <div class="eyebrow" style="color:var(--green)">Experiência</div>
       <h2>O que já construímos em campo.</h2>
     </div>
-    <div class="stats">
-      <div class="stat reveal">
-        <div class="num">~3.000</div>
-        <div class="lab">estudantes impactados em testes da plataforma de engajamento, em quatro polos municipais</div>
-      </div>
-      <div class="stat reveal">
-        <div class="num">4</div>
-        <div class="lab">polos municipais onde a abordagem foi testada na prática</div>
-      </div>
+    <div class="stats" style="grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto">
       <div class="stat reveal">
         <div class="num">Projetos autorais</div>
         <div class="lab">protótipos de baixo custo desenvolvidos como base prática das oficinas</div>
       </div>
     </div>
     <div class="note-wrap">
-      <div class="note">Os números acima refletem registros do próprio projeto e devem ser confirmados antes de uso comercial. Efeitos pedagógicos (como assiduidade e rendimento) são relatados de forma qualitativa, agregada e anônima, em conformidade com a LGPD.</div>
+      <div class="note">Protótipos autorais desenvolvidos pelo próprio projeto como base prática das atividades. Efeitos pedagógicos (como assiduidade e rendimento) são relatados de forma qualitativa, agregada e anônima, em conformidade com a LGPD.</div>
     </div>
   </div>
 </section>

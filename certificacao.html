@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Escolas — Instituto Nossos Robôs</title>
+<title>Certificação — Instituto Nossos Robôs</title>
+<meta name="description" content="Certificação de mediadores em robótica educacional: três níveis progressivos (introdutório, intermediário e aprofundado) em três modalidades (online, presencial e híbrida), com a metodologia HC-Learning. Saquarema–RJ, atuação nacional.">
 <style>
   :root{
     --bg:#0a1124;
@@ -81,6 +82,7 @@
 
   /* ---------- HERO ---------- */
   .hero{padding:96px 0 72px;position:relative}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
   .tag{
     font-family:var(--mono);font-size:12.5px;letter-spacing:1px;color:var(--cyan);
     border:1px solid var(--line);border-radius:999px;padding:6px 14px;display:inline-block;
@@ -102,8 +104,7 @@
   .btn-ghost{border:1px solid var(--line);color:var(--ink)}
   .btn-ghost:hover{border-color:var(--cyan);transform:translateY(-2px)}
 
-  /* ---------- HERO · LAYOUT EM DUAS COLUNAS + VÍDEO ---------- */
-  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+  /* ---------- HERO · VÍDEO (espaço reservado) ---------- */
   .hero-media{
     position:relative;border-radius:18px;overflow:hidden;
     border:1px solid var(--line);
@@ -132,12 +133,8 @@
     color:var(--cyan);text-transform:uppercase}
   .hero-media .ph .ph-sub{font-size:.86rem;color:var(--ink-soft);max-width:30ch}
   @media(prefers-reduced-motion:reduce){.hero-media .ph .ring{animation:none}}
-  @media(max-width:880px){
-    .hero-grid{grid-template-columns:1fr;gap:34px}
-    .hero-media{order:-1}
-  }
 
-  /* ---------- BNCC FAIXA ---------- */
+  /* ---------- FAIXA CONTEXTO + NÍVEIS ---------- */
   .bncc{
     border-top:1px solid var(--line);border-bottom:1px solid var(--line);
     background:linear-gradient(90deg,rgba(90,139,255,.06),transparent);
@@ -274,32 +271,48 @@
   }
   .scard .ico svg{width:34px;height:34px;display:block;overflow:visible}
 
-  /* ---- glyph: oficinas (robô montando) ---- */
-  .g-ofic .rb-head,.g-ofic .rb-body{fill:none;stroke:var(--cyan);stroke-width:1.6}
-  .g-ofic .rb-ant{stroke:var(--cyan);stroke-width:1.5}
-  .g-ofic .rb-antdot{fill:var(--amber);animation:ofic-blink 2.4s ease-in-out infinite}
-  .g-ofic .rb-eye{fill:var(--amber);animation:ofic-blink 2.4s ease-in-out infinite}
-  .g-ofic .rb-armL{stroke:var(--cyan);stroke-width:1.6;stroke-linecap:round;transform-origin:9px 23px;
-    animation:ofic-armL 2.8s ease-in-out infinite}
-  .g-ofic .rb-armR{stroke:var(--cyan);stroke-width:1.6;stroke-linecap:round;transform-origin:25px 23px;
-    animation:ofic-armR 2.8s ease-in-out infinite}
-  .scard:hover .g-ofic .rb-armL,.scard:hover .g-ofic .rb-armR{animation-duration:1.4s}
-  @keyframes ofic-blink{0%,90%,100%{opacity:1}95%{opacity:.2}}
-  @keyframes ofic-armL{0%,100%{transform:rotate(0)}50%{transform:rotate(-18deg)}}
-  @keyframes ofic-armR{0%,100%{transform:rotate(0)}50%{transform:rotate(18deg)}}
+  /* ---- glyph: inscrição (formulário + check) ---- */
+  .g-insc .form{fill:none;stroke:var(--cyan);stroke-width:1.6}
+  .g-insc .ln-form{stroke:var(--cyan);stroke-width:1.5;stroke-linecap:round;opacity:.55}
+  .g-insc .ln-form.l3{stroke:var(--amber)}
+  .g-insc .check{fill:none;stroke:var(--amber);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;
+    stroke-dasharray:26;stroke-dashoffset:26;animation:insc-check 3.2s ease-in-out infinite}
+  .scard:hover .g-insc .check{animation-duration:1.6s}
+  @keyframes insc-check{
+    0%,8%{stroke-dashoffset:26}
+    30%,72%{stroke-dashoffset:0}
+    92%,100%{stroke-dashoffset:26}
+  }
 
-  /* ---- glyph: formação (professor + lousa) ---- */
-  .g-form .bd-board{fill:none;stroke:var(--blue);stroke-width:1.6}
-  .g-form .bd-person{fill:none;stroke:var(--blue);stroke-width:1.6}
-  .g-form .bd-body{fill:none;stroke:var(--blue);stroke-width:1.6;stroke-linecap:round}
-  .g-form .bd-ln{stroke:var(--amber);stroke-width:1.5;stroke-linecap:round;
-    stroke-dasharray:12;stroke-dashoffset:12;animation:form-write 3.4s ease-in-out infinite}
-  .g-form .bd-ln.b2{animation-delay:.5s}
-  .scard:hover .g-form .bd-ln{animation-duration:1.8s}
-  @keyframes form-write{
-    0%,8%{stroke-dashoffset:12}
-    35%,75%{stroke-dashoffset:0}
-    92%,100%{stroke-dashoffset:12}
+  /* ---- glyph: trilha (caminho + marcos + caminhante) ---- */
+  .g-trilha .trail{fill:none;stroke:var(--blue);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;opacity:.5}
+  .g-trilha .milestone{fill:none;stroke:var(--blue);stroke-width:1.6;animation:tr-light 3.6s ease-in-out infinite}
+  .g-trilha .m2{animation-delay:1.2s}
+  .g-trilha .m3{animation-delay:2.4s}
+  .g-trilha .walker{fill:var(--amber);animation:tr-walk 3.6s ease-in-out infinite}
+  .scard:hover .g-trilha .walker{animation-duration:1.8s}
+  .scard:hover .g-trilha .milestone{animation-duration:1.8s}
+  @keyframes tr-walk{
+    0%{offset-distance:0%}
+    100%{offset-distance:100%}
+  }
+  @keyframes tr-light{
+    0%,100%{fill:transparent;stroke:var(--blue)}
+    50%{fill:var(--amber);stroke:var(--amber)}
+  }
+
+  /* ---- glyph: avaliação (checklist marcando) ---- */
+  .g-aval .box{fill:none;stroke:var(--amber);stroke-width:1.5}
+  .g-aval .al{stroke:var(--amber);stroke-width:1.5;stroke-linecap:round;opacity:.5}
+  .g-aval .tick{fill:none;stroke:var(--amber);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
+    stroke-dasharray:10;stroke-dashoffset:10;animation:aval-tick 3.6s ease-in-out infinite}
+  .g-aval .t2{animation-delay:.5s}
+  .g-aval .t3{animation-delay:1s}
+  .scard:hover .g-aval .tick{animation-duration:2s}
+  @keyframes aval-tick{
+    0%,10%{stroke-dashoffset:10}
+    30%,80%{stroke-dashoffset:0}
+    95%,100%{stroke-dashoffset:10}
   }
 
   /* ---- glyph: certificado (diploma + selo que carimba) ---- */
@@ -318,23 +331,10 @@
     100%{transform:scale(0);opacity:0}
   }
 
-  /* ---- glyph: itinerante (veículo com rodas girando) ---- */
-  .g-itin .vn-body,.g-itin .vn-cab{fill:none;stroke:var(--green);stroke-width:1.6;stroke-linejoin:round}
-  .g-itin .vn-wheel{fill:none;stroke:var(--green);stroke-width:1.6}
-  .g-itin .van{transform-origin:center;animation:itin-bob 2.6s ease-in-out infinite}
-  .g-itin .vn-trail{stroke:var(--amber);stroke-width:1.6;stroke-linecap:round;opacity:0;
-    animation:itin-trail 1.6s linear infinite}
-  .g-itin .vn-trail.tr2{animation-delay:.4s}
-  .scard:hover .g-itin .van{animation-duration:1.4s}
-  .scard:hover .g-itin .vn-trail{animation-duration:.9s}
-  @keyframes itin-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5px)}}
-  @keyframes itin-trail{0%{opacity:.9;transform:translateX(0)}100%{opacity:0;transform:translateX(-5px)}}
-
   @media(prefers-reduced-motion:reduce){
-    .g-ofic .rb-eye,.g-ofic .rb-antdot,.g-ofic .rb-armL,.g-ofic .rb-armR,
-    .g-form .bd-ln,.g-cert .seal-ring,.g-cert .seal-star,
-    .g-itin .van,.g-itin .vn-trail{animation:none !important}
-    .g-form .bd-ln{stroke-dashoffset:0}
+    .g-insc .check,.g-trilha .walker,.g-trilha .milestone,
+    .g-aval .tick,.g-cert .seal-ring,.g-cert .seal-star{animation:none !important}
+    .g-insc .check,.g-aval .tick{stroke-dashoffset:0}
     .g-cert .seal-ring,.g-cert .seal-star{transform:scale(1);opacity:1}
   }
   .scard h3{font-size:1.22rem;font-weight:700}
@@ -371,6 +371,10 @@
   .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
   .reveal.in{opacity:1;transform:none}
 
+  @media(max-width:880px){
+    .hero-grid{grid-template-columns:1fr;gap:34px}
+    .hero-media{order:-1}
+  }
   @media(max-width:780px){
     section{padding:60px 0}
     .bncc-grid,.compare,.cards,.stats{grid-template-columns:1fr}
@@ -390,7 +394,7 @@
     </a>
     <a class="brand" href="home.html">
       <span class="dot"></span>
-      <div>Instituto Nossos Robôs<small>Para Escolas</small></div>
+      <div>Instituto Nossos Robôs<small>Certificação</small></div>
     </a>
     <span class="nav-spacer"></span>
     <a class="nav-cta" href="#contato">Falar conosco</a>
@@ -401,12 +405,12 @@
 <header class="hero">
   <div class="wrap hero-grid">
     <div>
-      <span class="tag reveal">// Computação na Educação Básica</span>
-      <h1 class="reveal">A Computação virou <span class="hl">obrigatória</span>. Nós ajudamos sua escola a fazer isso bem feito.</h1>
-      <p class="lede reveal">A robótica educacional é hoje um dos caminhos mais eficientes para desenvolver pensamento computacional, cultura digital e resolução de problemas. Levamos isso à sua escola com método próprio, professores formados e nenhum kit fechado de fornecedor.</p>
+      <span class="tag reveal">// Certificação de mediadores</span>
+      <h1 class="reveal">Uma trilha que <span class="hl">certifica</span> e habilita o mediador, nível a nível.</h1>
+      <p class="lede reveal">A certificação reconhece formalmente o percurso do educador na metodologia HC-Learning. São três níveis progressivos — introdutório, intermediário e aprofundado — cada um disponível em três modalidades: online, presencial ou híbrida. A cada etapa concluída, o professor avança em autonomia até se tornar mediador licenciado.</p>
       <div class="hero-actions reveal">
-        <a class="btn btn-primary" href="#contato">Agendar uma conversa</a>
-        <a class="btn btn-ghost" href="#servicos">Ver o que oferecemos</a>
+        <a class="btn btn-primary" href="#contato">Quero me certificar</a>
+        <a class="btn btn-ghost" href="#niveis">Ver os níveis</a>
       </div>
     </div>
 
@@ -417,8 +421,8 @@
       Quando tiver o arquivo, substitua TODO o bloco <div class="ph">...</div>
       por uma tag de vídeo, assim (mantenha a pasta assets/video ao lado):
 
-        <video autoplay loop muted playsinline poster="assets/video/escolas-poster.jpg">
-          <source src="assets/video/escolas-intro.mp4" type="video/mp4">
+        <video autoplay loop muted playsinline poster="assets/video/certificacao-poster.jpg">
+          <source src="assets/video/certificacao-intro.mp4" type="video/mp4">
         </video>
 
       O placeholder animado abaixo aparece só enquanto o vídeo não está plugado.
@@ -428,36 +432,36 @@
       <div class="ph">
         <div class="ring" aria-hidden="true"></div>
         <div class="ph-tag">Vídeo em breve</div>
-        <div class="ph-sub">Espaço reservado para o vídeo de apresentação para escolas.</div>
+        <div class="ph-sub">Espaço reservado para o vídeo de apresentação da certificação.</div>
       </div>
     </div>
   </div>
 </header>
 
-<!-- BNCC -->
-<section class="bncc">
+<!-- CONTEXTO + NÍVEIS DE CERTIFICAÇÃO -->
+<section class="bncc" id="niveis">
   <div class="wrap bncc-grid">
     <div class="reveal">
-      <div class="eyebrow">O contexto</div>
-      <h2>A exigência já chegou. A dúvida das escolas é <em>como</em> aplicar.</h2>
-      <p>As normas para Computação na Educação Básica tornaram o tema parte do currículo obrigatório, em escolas públicas e privadas. A maioria das instituições entende a obrigação — o que falta é um caminho prático, pedagógico e sustentável para colocá-la em sala de aula.</p>
-      <p>É exatamente aí que entramos.</p>
-      <div class="note">Importante: a norma exige o desenvolvimento de competências de Computação e cultura digital, e não especificamente um “laboratório de robótica”. A robótica é uma das formas de cumprir essa exigência — e, na nossa experiência, uma das mais envolventes. Recomendamos confirmar prazos e diretrizes específicas junto à sua rede de ensino.</div>
+      <div class="eyebrow">A trilha</div>
+      <h2>Três níveis, três modalidades — um <em>percurso progressivo</em>.</h2>
+      <p>A certificação organiza a jornada do educador em três níveis que se constroem um sobre o outro: introdutório, intermediário e aprofundado. Cada nível concluído é reconhecido formalmente e abre a etapa seguinte, até habilitar o professor como mediador licenciado da metodologia.</p>
+      <p>Todos os níveis podem ser cursados em três modalidades — online, presencial ou híbrida — para se adequar à rotina de quem já está em sala de aula. Toque em cada nível ao lado para ver o que ele desenvolve e habilita.</p>
+      <div class="note">A confirmar: carga horária, pré-requisitos formais de ingresso e validade do certificado de cada nível ainda estão em definição. A estrutura de níveis e modalidades reflete o planejamento atual do Instituto e pode ser ajustada conforme a turma e a parceria — recomendamos confirmar o conteúdo e o formato vigentes antes de se inscrever.</div>
     </div>
     <div class="pillars reveal">
-      <button class="pillar" data-pillar="pc" aria-haspopup="dialog">
-        <h4><i></i>Pensamento computacional</h4>
-        <p>Lógica, algoritmos e decomposição de problemas — com ou sem computador.</p>
+      <button class="pillar" data-pillar="n1" aria-haspopup="dialog">
+        <h4><i></i>Nível introdutório</h4>
+        <p>Primeiro contato estruturado com a metodologia e a robótica de hardware aberto.</p>
         <span class="pillar-cue">explorar →</span>
       </button>
-      <button class="pillar" data-pillar="cd" aria-haspopup="dialog">
-        <h4><i></i>Cultura digital</h4>
-        <p>Uso crítico e consciente da tecnologia, não apenas consumo.</p>
+      <button class="pillar" data-pillar="n2" aria-haspopup="dialog">
+        <h4><i></i>Nível intermediário</h4>
+        <p>Condução autônoma das atividades e dos planos de aula em sala.</p>
         <span class="pillar-cue">explorar →</span>
       </button>
-      <button class="pillar" data-pillar="md" aria-haspopup="dialog">
-        <h4><i></i>Mundo digital</h4>
-        <p>Como a tecnologia funciona por dentro e como ela molda a sociedade.</p>
+      <button class="pillar" data-pillar="n3" aria-haspopup="dialog">
+        <h4><i></i>Nível aprofundado</h4>
+        <p>Mediação plena da metodologia e habilitação como mediador licenciado.</p>
         <span class="pillar-cue">explorar →</span>
       </button>
     </div>
@@ -483,14 +487,14 @@
       <span class="corner bl"></span><span class="corner br"></span>
       <button class="holo-close" id="holoClose" aria-label="Fechar">✕</button>
       <div class="holo-head">
-        <div class="holo-tag" id="holoTag">// eixo</div>
+        <div class="holo-tag" id="holoTag">// nível</div>
         <h3 id="holoTitle">Título</h3>
       </div>
       <div class="holo-scroll">
         <div class="holo-body" id="holoBody"></div>
       </div>
       <div class="holo-foot-wrap">
-        <div class="holo-foot">BNCC · Computação na Educação Básica</div>
+        <div class="holo-foot">Certificação · Mediador HC-Learning</div>
       </div>
     </div>
   </div>
@@ -500,27 +504,27 @@
 <section class="diff">
   <div class="wrap">
     <div class="reveal">
-      <div class="eyebrow" style="color:var(--amber)">Por que nós</div>
-      <h2>Robótica que ensina a pensar — não a <span class="hl">seguir manual</span>.</h2>
-      <p class="diff-lede">Boa parte do mercado vende caixas fechadas: peças que só encaixam de um jeito, software travado e dependência de um único fornecedor. Acreditamos no oposto. Trabalhamos com hardware aberto e acessível, onde o erro faz parte do aprendizado e o aluno constrói de verdade.</p>
+      <div class="eyebrow" style="color:var(--amber)">Por que certificar</div>
+      <h2>Um percurso <span class="hl">reconhecido</span> — não um curso solto.</h2>
+      <p class="diff-lede">Um treinamento avulso de kit termina e não deixa registro: nada comprova o que o professor aprendeu, e o aprendizado fica preso a uma única marca. A certificação em níveis faz o oposto — reconhece formalmente cada etapa do percurso, é construída sobre hardware aberto e habilita o educador a mediar a metodologia com autonomia real.</p>
     </div>
     <div class="compare">
       <div class="col closed reveal">
-        <h5>Kit fechado de fornecedor</h5>
+        <h5>Treinamento avulso de kit</h5>
         <ul>
-          <li><span>—</span> Peças que só montam de uma forma</li>
-          <li><span>—</span> Dependência de uma única marca</li>
-          <li><span>—</span> Custo alto e reposição cara</li>
-          <li><span>—</span> O aluno segue o manual</li>
+          <li><span>—</span> Sem reconhecimento formal do que foi aprendido</li>
+          <li><span>—</span> Aprendizado preso a uma única marca</li>
+          <li><span>—</span> Não habilita o professor a mediar nada além do kit</li>
+          <li><span>—</span> Percurso que não se acumula nem progride</li>
         </ul>
       </div>
       <div class="col open reveal">
-        <h5>Nosso modelo aberto</h5>
+        <h5>Certificação em níveis</h5>
         <ul>
-          <li><span>+</span> Hardware acessível (Arduino e similares)</li>
-          <li><span>+</span> Liberdade para criar, errar e refazer</li>
-          <li><span>+</span> Autonomia: a escola não fica refém</li>
-          <li><span>+</span> O aluno resolve problemas reais</li>
+          <li><span>+</span> Reconhecimento formal de cada etapa concluída</li>
+          <li><span>+</span> Construída sobre hardware aberto (Arduino e similares)</li>
+          <li><span>+</span> Habilita o educador como mediador licenciado</li>
+          <li><span>+</span> Percurso progressivo: cada nível abre o próximo</li>
         </ul>
       </div>
     </div>
@@ -528,41 +532,54 @@
 </section>
 
 <!-- SERVIÇOS -->
-<section id="servicos">
+<section id="processo">
   <div class="wrap">
     <div class="serv-head reveal">
-      <div class="eyebrow">O que oferecemos</div>
-      <h2>Quatro frentes para implantar a Computação na sua escola.</h2>
+      <div class="eyebrow">O caminho até o certificado</div>
+      <h2>Como funciona a certificação, do início ao fim.</h2>
     </div>
     <div class="cards">
       <div class="scard reveal" style="--accent:var(--cyan)">
-        <div class="ico"><svg class="g-ofic" viewBox="0 0 34 34">
-          <rect class="rb-head" x="11" y="9" width="12" height="9" rx="2"/>
-          <circle class="rb-eye e1" cx="14.5" cy="13.5" r="1.4"/>
-          <circle class="rb-eye e2" cx="19.5" cy="13.5" r="1.4"/>
-          <line class="rb-ant" x1="17" y1="9" x2="17" y2="5"/>
-          <circle class="rb-antdot" cx="17" cy="4" r="1.4"/>
-          <rect class="rb-body" x="9" y="20" width="16" height="9" rx="2"/>
-          <line class="rb-armL" x1="9" y1="23" x2="5" y2="25"/>
-          <line class="rb-armR" x1="25" y1="23" x2="29" y2="25"/>
+        <div class="ico"><svg class="g-insc" viewBox="0 0 34 34">
+          <rect class="form" x="8" y="6" width="18" height="22" rx="2"/>
+          <line class="ln-form l1" x1="12" y1="12" x2="22" y2="12"/>
+          <line class="ln-form l2" x1="12" y1="17" x2="22" y2="17"/>
+          <line class="ln-form l3" x1="12" y1="22" x2="18" y2="22"/>
+          <path class="check" d="M11 18 L15 22 L23 12"/>
         </svg></div>
-        <h3>Oficinas para escolas</h3>
-        <p>Atividades de robótica e programação aplicadas em sala, com planos de aula estruturados e material próprio. Pensadas para se encaixar no currículo, não para competir com ele.</p>
-        <div class="meta">Aplicação direta com os alunos</div>
+        <h3>1 · Inscrição</h3>
+        <p>O educador escolhe o nível em que vai começar e a modalidade — online, presencial ou híbrida. A entrada na trilha pode partir de palestras e workshops, abertos a quem quer conhecer a proposta antes de se comprometer.</p>
+        <div class="meta">Escolha de nível e modalidade</div>
       </div>
       <div class="scard reveal" style="--accent:var(--blue)">
-        <div class="ico"><svg class="g-form" viewBox="0 0 34 34">
-          <rect class="bd-board" x="13" y="6" width="16" height="12" rx="1.5"/>
-          <line class="bd-ln b1" x1="16" y1="10" x2="26" y2="10"/>
-          <line class="bd-ln b2" x1="16" y1="13" x2="23" y2="13"/>
-          <circle class="bd-person" cx="8" cy="13" r="3.4"/>
-          <path class="bd-body" d="M3 25 C3 18, 13 18, 13 25"/>
+        <div class="ico"><svg class="g-trilha" viewBox="0 0 34 34">
+          <path class="trail" d="M6 26 L14 26 L14 14 L26 14 L26 6"/>
+          <circle class="milestone m1" cx="6" cy="26" r="2.4"/>
+          <circle class="milestone m2" cx="14" cy="14" r="2.4"/>
+          <circle class="milestone m3" cx="26" cy="6" r="2.4"/>
+          <circle class="walker" r="2" style="offset-path:path('M6 26 L14 26 L14 14 L26 14 L26 6')"/>
         </svg></div>
-        <h3>Formação de professores</h3>
-        <p>Capacitamos a equipe da própria escola para conduzir as atividades com segurança e autonomia, reduzindo a dependência de fornecedores externos ao longo do tempo.</p>
-        <div class="meta">Autonomia para a escola</div>
+        <h3>2 · Trilha do nível</h3>
+        <p>Durante o nível, o professor desenvolve a prática com hardware aberto e a articulação pedagógica da metodologia. Cada nível tem foco próprio, conforme o detalhamento na seção dos três níveis acima.</p>
+        <div class="meta">Prática guiada e conteúdo do nível</div>
       </div>
       <div class="scard reveal" style="--accent:var(--amber)">
+        <div class="ico"><svg class="g-aval" viewBox="0 0 34 34">
+          <rect class="box b1" x="7" y="8" width="5" height="5" rx="1"/>
+          <rect class="box b2" x="7" y="16" width="5" height="5" rx="1"/>
+          <rect class="box b3" x="7" y="24" width="5" height="5" rx="1"/>
+          <path class="tick t1" d="M8 10.5 L9.5 12 L11 8.8"/>
+          <path class="tick t2" d="M8 18.5 L9.5 20 L11 16.8"/>
+          <path class="tick t3" d="M8 26.5 L9.5 28 L11 24.8"/>
+          <line class="al a1" x1="16" y1="10.5" x2="27" y2="10.5"/>
+          <line class="al a2" x1="16" y1="18.5" x2="27" y2="18.5"/>
+          <line class="al a3" x1="16" y1="26.5" x2="24" y2="26.5"/>
+        </svg></div>
+        <h3>3 · Avaliação</h3>
+        <p>Ao final de cada nível, o percurso do educador é avaliado para confirmar que ele está apto a avançar e a mediar as atividades correspondentes àquela etapa.</p>
+        <div class="meta">A confirmar: formato e critérios</div>
+      </div>
+      <div class="scard reveal" style="--accent:var(--green)">
         <div class="ico"><svg class="g-cert" viewBox="0 0 34 34">
           <rect class="doc" x="6" y="6" width="22" height="16" rx="1.5"/>
           <line class="dl d1" x1="10" y1="11" x2="24" y2="11"/>
@@ -573,24 +590,9 @@
           <line class="ribbon r1" x1="21" y1="29" x2="20.5" y2="32.5"/>
           <line class="ribbon r2" x1="25" y1="29" x2="25.5" y2="32.5"/>
         </svg></div>
-        <h3>Certificação de mediadores</h3>
-        <p>Trilha de certificação em níveis progressivos que habilita o educador como mediador da metodologia, com reconhecimento formal do percurso de formação.</p>
-        <div class="meta">Em níveis progressivos</div>
-      </div>
-      <div class="scard reveal" style="--accent:var(--green)">
-        <div class="ico"><svg class="g-itin" viewBox="0 0 34 34">
-          <g class="van">
-            <rect class="vn-body" x="6" y="12" width="18" height="9" rx="2"/>
-            <path class="vn-cab" d="M24 14 L29 14 L29 21 L24 21"/>
-            <circle class="vn-wheel" cx="12" cy="23" r="2.6"/>
-            <circle class="vn-wheel" cx="22" cy="23" r="2.6"/>
-          </g>
-          <line class="vn-trail tr1" x1="2" y1="17" x2="5" y2="17"/>
-          <line class="vn-trail tr2" x1="1" y1="21" x2="4" y2="21"/>
-        </svg></div>
-        <h3>Robótica itinerante & contraturno</h3>
-        <p>Levamos a experiência à escola em formato itinerante ou de contraturno, ideal para instituições que querem começar sem montar uma estrutura fixa de imediato.</p>
-        <div class="meta">Flexível e de baixa barreira</div>
+        <h3>4 · Certificado</h3>
+        <p>Concluído e aprovado o nível, o educador recebe o reconhecimento formal daquela etapa e habilita o próximo nível. Ao completar a trilha, está habilitado como mediador licenciado da metodologia HC-Learning.</p>
+        <div class="meta">Reconhecimento que abre o próximo nível</div>
       </div>
     </div>
   </div>
@@ -620,8 +622,8 @@
   <div class="wrap">
     <div class="seal reveal">
       <div class="badge">HC-Learning</div>
-      <h2>Um método com lastro pedagógico.</h2>
-      <p>Nossas oficinas são sustentadas por uma metodologia autoral que articula pedagogia crítica, aprendizagem experiencial e desenho universal para a aprendizagem. Ela é o que dá consistência ao trabalho — e o que diferencia uma aula de robótica de um simples passatempo com peças.</p>
+      <h2>Uma certificação com lastro pedagógico.</h2>
+      <p>O que você recebe não é um diploma de operador de kit. A certificação é sustentada por uma metodologia autoral que articula pedagogia crítica, aprendizagem experiencial e desenho universal para a aprendizagem — o que dá peso real ao reconhecimento e diferencia quem domina o que ensina de quem apenas segue um roteiro pronto.</p>
     </div>
   </div>
 </section>
@@ -631,11 +633,11 @@
   <div class="wrap">
     <div class="reveal">
       <div class="eyebrow" style="text-align:center">Vamos conversar</div>
-      <h2>Quer entender como isso funcionaria na sua escola?</h2>
-      <p>Marque uma conversa sem compromisso. Apresentamos as frentes, ouvimos a realidade da sua instituição e desenhamos um caminho possível para a adequação à Computação na Educação Básica.</p>
+      <h2>Pronto para começar sua certificação?</h2>
+      <p>Marque uma conversa sem compromisso. Explicamos os níveis, as modalidades e o processo de certificação, e ajudamos a escolher por onde começar — seja você professor individual ou parte de uma equipe escolar.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="mailto:contato@exemplo.com.br">Agendar conversa</a>
-        <a class="btn btn-ghost" href="#servicos">Rever os serviços</a>
+        <a class="btn btn-ghost" href="#niveis">Rever os níveis</a>
       </div>
     </div>
   </div>
@@ -657,27 +659,32 @@
     io.observe(el);
   });
 
-  /* ---------- Painel holográfico dos pilares ---------- */
+  /* ---------- Painel holográfico dos níveis ---------- */
   const HOLO={
-    pc:{tag:'// eixo 01',color:'#5a8bff',title:'Pensamento computacional',
-      body:`<p>É a capacidade de <strong>resolver problemas de forma estruturada</strong>, como um cientista da computação faz — mas aplicável a qualquer área da vida.</p>
-      <div class="row">Decompor: quebrar um problema grande em partes menores e tratáveis.</div>
-      <div class="row">Reconhecer padrões: enxergar o que se repete e generalizar.</div>
-      <div class="row">Abstrair: separar o essencial do detalhe que não importa agora.</div>
-      <div class="row">Algoritmos: descrever a solução em passos claros e executáveis.</div>
-      <p style="margin-top:14px">Pode ser desenvolvido <strong>com ou sem computador</strong> — inclusive em atividades desplugadas e na própria matemática.</p>`},
-    cd:{tag:'// eixo 02',color:'#3fd0e0',title:'Cultura digital',
-      body:`<p>Vai além de saber usar aparelhos: é <strong>participar do mundo digital de forma crítica, ética e consciente</strong>.</p>
-      <div class="row">Usar tecnologias para criar, comunicar e colaborar — não só consumir.</div>
-      <div class="row">Avaliar informação, reconhecer riscos e cuidar da segurança e privacidade.</div>
-      <div class="row">Compreender o impacto social, cultural e ético da tecnologia no dia a dia.</div>
-      <p style="margin-top:14px">O aluno deixa de ser usuário passivo e passa a ser <strong>autor</strong> no ambiente digital.</p>`},
-    md:{tag:'// eixo 03',color:'#5fd49a',title:'Mundo digital',
-      body:`<p>É entender <strong>como a tecnologia funciona por dentro</strong> — tirar a máquina da caixa-preta.</p>
-      <div class="row">Como dados são representados, codificados e transmitidos.</div>
-      <div class="row">Como hardware e software trabalham juntos para executar tarefas.</div>
-      <div class="row">Como redes e sistemas conectam dispositivos e pessoas.</div>
-      <p style="margin-top:14px">Compreender o funcionamento é o primeiro passo para <strong>controlar a tecnologia</strong> em vez de ser controlado por ela — o coração da nossa proposta com hardware aberto.</p>`}
+    n1:{tag:'// nível 01',color:'#5a8bff',title:'Nível introdutório',
+      body:`<p>O ponto de partida da trilha de certificação. O professor tem o <strong>primeiro contato estruturado</strong> com a metodologia e com a robótica de hardware aberto.</p>
+      <div class="row">Fundamentos da proposta pedagógica e da cultura maker.</div>
+      <div class="row">Primeiros projetos práticos com componentes acessíveis.</div>
+      <div class="row">Como o erro entra como parte produtiva do aprendizado.</div>
+      <p style="margin-top:14px">Ao concluir, o educador recebe o <strong>reconhecimento do nível introdutório</strong> e está apto a acompanhar e apoiar atividades iniciais com segurança.</p>
+      <p style="margin-top:14px"><strong>Modalidades:</strong> online, presencial ou híbrida.</p>
+      <p style="margin-top:6px;font-size:.86rem;color:var(--ink-soft)">Carga horária e pré-requisitos a confirmar.</p>`},
+    n2:{tag:'// nível 02',color:'#3fd0e0',title:'Nível intermediário',
+      body:`<p>Com o nível introdutório concluído, o professor passa a <strong>conduzir as atividades de forma autônoma</strong>, sem depender de um roteiro fechado.</p>
+      <div class="row">Planejamento e condução de planos de aula estruturados.</div>
+      <div class="row">Adaptação das atividades à realidade da turma e da escola.</div>
+      <div class="row">Mediação do trabalho dos alunos com hardware aberto.</div>
+      <p style="margin-top:14px">É o nível em que o educador deixa de operar material pronto e passa a <strong>desenhar a própria aula</strong>, com reconhecimento formal da etapa.</p>
+      <p style="margin-top:14px"><strong>Modalidades:</strong> online, presencial ou híbrida.</p>
+      <p style="margin-top:6px;font-size:.86rem;color:var(--ink-soft)">Pré-requisito: nível introdutório. Carga horária a confirmar.</p>`},
+    n3:{tag:'// nível 03',color:'#5fd49a',title:'Nível aprofundado',
+      body:`<p>O grau mais avançado da trilha: <strong>mediação plena da metodologia</strong> e capacidade de multiplicá-la.</p>
+      <div class="row">Domínio aprofundado da articulação pedagógica do método.</div>
+      <div class="row">Capacidade de orientar e formar outros educadores.</div>
+      <div class="row">Atuação como referência da metodologia na escola.</div>
+      <p style="margin-top:14px">Habilita o professor como <strong>mediador licenciado</strong>, fechando o percurso de certificação e autonomia.</p>
+      <p style="margin-top:14px"><strong>Modalidades:</strong> online, presencial ou híbrida.</p>
+      <p style="margin-top:6px;font-size:.86rem;color:var(--ink-soft)">Pré-requisito: nível intermediário. Carga horária e validade da licença a confirmar.</p>`}
   };
 
   const holo=document.getElementById('holo');
