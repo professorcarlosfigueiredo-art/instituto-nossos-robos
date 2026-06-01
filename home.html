@@ -245,8 +245,9 @@ h1 .grad{color:var(--ouro);animation:wordPulse 2.8s ease-in-out infinite}
   background:linear-gradient(180deg,rgba(34,56,79,.92),rgba(19,29,41,.88));overflow:hidden;transform:rotate(-2deg);
   box-shadow:0 30px 80px -30px rgba(0,0,0,.7),0 0 0 6px rgba(72,202,228,.05)}
 .screen-top{display:flex;gap:7px;padding:14px 16px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.22)}
-.dotr{width:11px;height:11px;border-radius:50%;background:#3a536e}
-.dotr:nth-child(1){background:var(--ouro)} .dotr:nth-child(2){background:var(--turq)}
+.dotr{width:11px;height:11px;border-radius:50%;background:#3a536e;animation:dotrBlink 2.4s ease-in-out infinite}
+.dotr:nth-child(1){background:var(--ouro);animation-delay:0s} .dotr:nth-child(2){background:var(--turq);animation-delay:.4s} .dotr:nth-child(3){animation-delay:.8s}
+@keyframes dotrBlink{0%,100%{opacity:.45;box-shadow:none}12%{opacity:1;box-shadow:0 0 10px currentColor}30%{opacity:.45;box-shadow:none}}
 .screen-body{padding:32px 26px;display:grid;gap:24px;place-items:center}
 .robot{font-size:5rem;line-height:1;filter:drop-shadow(0 12px 26px rgba(72,202,228,.35))}
 .bars{width:100%;display:grid;gap:12px}
@@ -602,7 +603,7 @@ footer .lock{display:inline-flex;align-items:center;gap:7px}
           </svg>
           <span>Para professores</span>
         </a>
-        <span class="chip">
+        <a class="chip" href="certificacao.html">
           <svg class="ic-cert" viewBox="0 0 256 256" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
             <path d="M70 40 H160 L200 80 V210 H70 Z"/>
             <path d="M160 40 V80 H200"/>
@@ -616,7 +617,7 @@ footer .lock{display:inline-flex;align-items:center;gap:7px}
             </g>
           </svg>
           <span>Certificação</span>
-        </span>
+        </a>
         <span class="chip">
           <svg class="ic-cursos" viewBox="0 0 256 256" fill="none" stroke="#55E6FF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
             <path d="M40 108 L128 72 L216 108 L128 144 Z"/>
@@ -685,7 +686,7 @@ footer .lock{display:inline-flex;align-items:center;gap:7px}
       <div class="ic"><svg class="ic-cert2" viewBox="0 0 64 64" fill="none" stroke="#48CAE4" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M16 6 H38 L48 16 V44 H16 Z"/><path d="M38 6 V16 H48"/><path d="M22 22 H42 M22 29 H42 M22 36 H34"/><g class="seal"><circle cx="42" cy="48" r="9" fill="none" stroke="#FFB703"/><path d="M37 56 L42 52 L47 56" stroke="#FFB703"/></g></svg></div>
       <h3>Certificação de mediadores</h3>
       <p>O Instituto certifica os professores para usar a nossa metodologia. São três níveis, do básico ao avançado, com certificado no fim.</p>
-      <span class="more">Conhecer a certificação <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      <a class="more" href="certificacao.html">Conhecer a certificação <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </article>
 
     <article class="card reveal d4">
