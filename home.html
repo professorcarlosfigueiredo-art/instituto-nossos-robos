@@ -172,6 +172,9 @@ nav a.link:hover{color:var(--text)}
 a,.btn,.fc-link,button{-webkit-tap-highlight-color:transparent}
 .btn:active{transform:translateY(2px) scale(.99);box-shadow:none}
 .btn.primary:active{transform:translateY(2px) scale(.99);box-shadow:0 4px 14px rgba(255,183,3,.28)}
+/* botão principal: destaque turquesa fixo (borda azul) */
+.btn.feature{border-color:var(--turq);box-shadow:0 0 0 3px rgba(72,202,228,.16)}
+.btn.feature:hover{box-shadow:0 0 0 4px rgba(72,202,228,.22);transform:translateY(-1px)}
 .nav-cta{display:flex;gap:10px;align-items:center}
 .menu-links{display:flex;gap:26px;align-items:center}
 
@@ -232,8 +235,10 @@ h1 .grad{color:var(--ouro);animation:wordPulse 2.8s ease-in-out infinite}
 @keyframes lupaPan{0%{transform:translate(0,0)}50%{transform:translate(34px,26px)}100%{transform:translate(0,0)}}
 .ic-cursos .tassel{transform-box:view-box;transform-origin:216px 108px;animation:tasselSwing 3s ease-in-out infinite}
 @keyframes tasselSwing{0%,100%{transform:rotate(7deg)}50%{transform:rotate(-7deg)}}
-.ic-kit .kit-lid{transform-box:view-box;transform-origin:48px 122px;animation:lidOpen 2.6s ease-in-out infinite}
-@keyframes lidOpen{0%,100%{transform:rotate(0deg)}45%,60%{transform:rotate(-26deg)}}
+.ic-loja{transform-box:view-box;transform-origin:124px 130px;animation:cartRoll 3s ease-in-out infinite}
+@keyframes cartRoll{0%,100%{transform:translateX(0)}50%{transform:translateX(8px)}}
+.ic-loja .cart-items{animation:cartItems 2.4s ease-in-out infinite}
+@keyframes cartItems{0%,100%{opacity:.35}50%{opacity:1}}
 .ic-shake .hand-l{transform-box:view-box;animation:shakeL 2.2s ease-in-out infinite}
 .ic-shake .hand-r{transform-box:view-box;animation:shakeR 2.2s ease-in-out infinite}
 @keyframes shakeL{0%,100%{transform:translateX(-16px)}45%,60%{transform:translateX(0)}}
@@ -548,7 +553,7 @@ footer .lock{display:inline-flex;align-items:center;gap:7px}
       <h1 class="reveal d2">Robótica que forma <span class="grad">pensadores</span>, não apenas operadores.</h1>
       <p class="sub reveal d3">Robótica de verdade para a sua escola: oficinas para os alunos, formação e certificação para os professores. Em todo o Brasil.</p>
       <div class="hero-cta reveal d4">
-        <a class="btn primary lg" href="#servicos"><img class="bi" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNTYiIGhlaWdodD0iMjU2IiB2aWV3Qm94PSIwIDAgMjU2IDI1NiI+CjxnIGZpbGw9Im5vbmUiIHN0cm9rZT0iI0ZGRkZGRiIgc3Ryb2tlLXdpZHRoPSIxMCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIj4KPHJlY3QgeD0iNjAiIHk9IjcwIiB3aWR0aD0iMTM2IiBoZWlnaHQ9IjExMCIgcng9IjI4Ii8+CjxjaXJjbGUgY3g9IjEwMCIgY3k9IjEyMCIgcj0iOCIgZmlsbD0iIzU1RTZGRiIvPgo8Y2lyY2xlIGN4PSIxNTYiIGN5PSIxMjAiIHI9IjgiIGZpbGw9IiM1NUU2RkYiLz4KPHBhdGggZD0iTTExMCAxNTUgSDE0NiIvPgo8cGF0aCBkPSJNMTI4IDQwIFY3MCIvPgo8Y2lyY2xlIGN4PSIxMjgiIGN5PSIyOCIgcj0iMTAiIHN0cm9rZT0iI0ZGQjcwMyIvPgo8cGF0aCBkPSJNNjAgMTEwIEg0MCIvPgo8cGF0aCBkPSJNMTk2IDExMCBIMjE2Ii8+CjwvZz4KPC9zdmc+" alt=""> Conheça os serviços</a>
+        <a class="btn lg feature" href="servicos.html">Conheça os serviços</a>
         <button class="btn lg js-open-video"><span class="play-ic">▶</span> Assista ao vídeo</button>
       </div>
       <div class="trust reveal d6"><span class="ln"></span> De acordo com as novas regras de Computação na Educação Básica</div>
@@ -630,19 +635,20 @@ footer .lock{display:inline-flex;align-items:center;gap:7px}
           <span>Cursos</span>
         </a>
         <span class="chip">
-          <svg class="ic-kit" viewBox="0 0 256 256" fill="none" stroke="#55E6FF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="48" y="120" width="160" height="86" rx="10"/>
-            <circle cx="104" cy="164" r="9" fill="#FFB703" stroke="none"/>
-            <circle cx="152" cy="164" r="9" fill="#FFB703" stroke="none"/>
-            <path d="M116 186 H140"/>
-            <g class="kit-lid">
-              <rect x="48" y="92" width="160" height="34" rx="8"/>
-              <path d="M100 92 V76 C100 64, 156 64, 156 76 V92"/>
+          <svg class="ic-loja" viewBox="0 0 256 256" fill="none" stroke="#55E6FF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M40 56 H68 L92 158 H188 L208 92 H80"/>
+            <circle class="cart-wheel" cx="100" cy="196" r="13"/>
+            <circle class="cart-wheel" cx="176" cy="196" r="13"/>
+            <g class="cart-items" stroke="#FFB703">
+              <line x1="116" y1="118" x2="116" y2="134"/>
+              <line x1="108" y1="126" x2="124" y2="126"/>
+              <line x1="150" y1="118" x2="150" y2="134"/>
+              <line x1="142" y1="126" x2="158" y2="126"/>
             </g>
           </svg>
-          <span>Kits Robótica</span>
+          <span>Loja Virtual</span>
         </span>
-        <span class="chip">
+        <a class="chip" href="parcerias.html">
           <svg class="ic-shake" viewBox="0 0 256 256" fill="none" stroke="#55E6FF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
             <g class="hand-l">
               <path d="M28 188 L104 138"/>
@@ -655,7 +661,7 @@ footer .lock{display:inline-flex;align-items:center;gap:7px}
             <circle cx="128" cy="135" r="6" fill="#FFB703" stroke="none"/>
           </svg>
           <span>Parcerias</span>
-        </span>
+        </a>
       </div>
   </div>
 
